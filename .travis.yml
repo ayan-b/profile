@@ -10,7 +10,8 @@ script:
  
 after_success:
   - echo "Removing files ... "
-  - mv src/main.pdf main.pdf
+  - mv src/main.pdf AyanBanerjee.pdf
+  - mv src/index.html index.html
   - rm -rf src
   - rm .travis.yml README.md
 
