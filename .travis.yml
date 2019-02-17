@@ -8,7 +8,8 @@ script:
   # Compiling only main.tex:
   - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic main.tex"
  
-after-success:
+after_success:
+  - echo "Removing files ... "
   - mv src/main.pdf main.pdf
   - rm -rf src
   - rm .travis.yml README.md
@@ -20,4 +21,3 @@ deploy:
   keep-history: true
   on:
     branch: master
-    
