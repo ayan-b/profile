@@ -13,7 +13,7 @@ after_success:
   - mv src/main.pdf AyanBanerjee.pdf
   - mv src/index.html index.html
   - rm -rf src
-  - rm .travis.yml README.md
+  - rm .travis.yml README.md LICENSE
 
 deploy:
   provider: pages
