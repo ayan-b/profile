@@ -1,6 +1,8 @@
 sudo: required
 language: generic
 services: docker
+notifications:
+  email: false
 
 tex-config:
 - tex-scheme=small
