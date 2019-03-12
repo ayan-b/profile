@@ -18,7 +18,7 @@ after_success:
   - echo "Removing files ... "
   - mv src/main.pdf AyanBanerjee.pdf
   - mv src/index.html index.html
-  - rm -rf src
+  - rm -rf src statics
   - rm .travis.yml README.md LICENSE
 
 deploy:
