@@ -20,8 +20,9 @@ after_success:
   - mv src/index.html index.html
   - rm -rf src statics
   - rm .travis.yml README.md LICENSE
+  - sudo apt-get install poppler-utils
   - echo "Converting to images ..."
-  - pdftoppm -jpeg AyanBanerjee.pdf AyanBanerjee && mv AyanBanerjee-1.jpg AyanBanerjee.jpg
+  - pdftoppm -jpeg AyanBanerjee.pdf AyanBanerjee -singlefile
 
 deploy:
   provider: pages
