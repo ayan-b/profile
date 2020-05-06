@@ -17,8 +17,8 @@ addons:
     update: true
 
 script:
-- docker pull strauman/travis-latexbuild:small # select small texlive scheme
-- docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild:small # also it here
+- docker pull strauman/travis-latexbuild:texliveonfly # select small texlive scheme
+- docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild:texliveonfly # also it here
 
 after_success:
   - echo "Removing files ... "
