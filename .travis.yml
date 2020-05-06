@@ -8,7 +8,7 @@ tex-config:
 - tex-scheme=small
 - push-type=none
 - build-pattern=src/main.tex
-- packages=preprint, titlesec, marvosym, enumitem
+- packages=preprint, titlesec, marvosym, enumitem, fullpage
 
 before_install:
   - sudo apt-get install poppler-utils
