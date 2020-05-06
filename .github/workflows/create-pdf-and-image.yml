@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Print dir tree
+      run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
     - name: Install from apt
       run: sudo apt-get install poppler-utils
     - name: Create PDF
