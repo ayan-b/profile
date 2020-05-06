@@ -4,12 +4,6 @@ services: docker
 notifications:
   email: false
 
-tex-config:
-- tex-scheme=small
-- push-type=none
-- build-pattern=src/main.tex
-- packages=preprint, titlesec, marvosym, enumitem, fullpage
-
 before_install:
   - sudo apt-get install poppler-utils
 addons:
@@ -17,8 +11,8 @@ addons:
     update: true
 
 script:
-- docker pull strauman/travis-latexbuild:texliveonfly # select small texlive scheme
-- docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild:texliveonfly # also it here
+- docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
+  /bin/sh -c "tectonic --keep-intermediates --reruns 0 main.tex; biber main; tectonic main.tex"
 
 after_success:
   - echo "Removing files ... "
