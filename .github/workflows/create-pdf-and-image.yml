@@ -10,13 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Print dir tree
-      run: find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
+    - uses: actions/checkout@v2
     - name: Install from apt
       run: sudo apt-get install poppler-utils
     - name: Create PDF
       run: |
-        ls
         docker run --mount src=$GITHUB_WORKSPACE/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
         /bin/sh -c "tectonic --keep-intermediates --reruns 0 main.tex; biber main; tectonic main.tex"
     - name: Cleanup
